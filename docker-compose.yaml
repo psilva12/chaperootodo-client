@@ -9,10 +9,10 @@ services:
     depends_on:
       - chaperoo-service    
   chaperoo-service: 
-    image: palinhesosilva/chaperoo-service
+    image: jordangrindrod/chaperoo-service
     depends_on: 
       - chaperoo-db
   chaperoo-db:
-    image: palinhesosilva/chaperoo-db
+    image: jordangrindrod/chaperoo-db
     environment:
       - MYSQL_ROOT_PASSWORD=password
