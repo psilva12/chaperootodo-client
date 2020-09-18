@@ -8,7 +8,7 @@ pipeline{
             stage('Build Image'){
                 steps{
                     script{
-                        if (envenvironment.rollback == 'false'){
+                        if (environment.rollback == 'false'){
                             image = docker.build("palinhesosilva/chaperoo-frontend")
                         }
                     }
@@ -17,9 +17,9 @@ pipeline{
             stage('Tag & Push Image'){
                 steps{
                     script{
-                        if (envenvironment.rollback == 'false'){
+                        if (environment.rollback == 'false'){
                             docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                image.push("${envenvironment.app_version}")
+                                image.push("${environment.app_version}")
                             }
                         }
                     }
